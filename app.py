@@ -12,7 +12,7 @@ from linebot.models import (
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('XUGAssvIbIfQFbYG6dAWNm7AffB9/LK31jHBH09Ge8tZZqWAJFKVmrGQ2S4GfQMM73p7lVM6HZP9K/u1fJam8rV0F5B2EslaUCPu1CIo+2qnMqGiyl+C5xikZeaUZW1JRIVWmnwZ7PAYBp7yRelNiwdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
 handler = WebhookHandler('6a8ab0a64495a9ecec6971e1faa9ee9c')
 
 
@@ -37,15 +37,9 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-
-    r=event.message.text
-
-    if message == '阿柔很美':
-        r = '對啊'
-    
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=r))
+        TextSendMessage(text=event.message.text))
 
 
 if __name__ == "__main__":
