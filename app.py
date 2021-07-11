@@ -38,7 +38,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    r = 'msg'
+    r = msg
     
     if '吃飽'in msg :
         r = '吃飽了'
