@@ -40,12 +40,20 @@ def handle_message(event):
     msg = event.message.text
     r = msg
     
-    if '吃飽'in msg :
+    if '吃飽'in msg:
         r = '吃飽了'
     elif '米雪'in msg:
         r = '米雪很可愛'
     elif '笨'in msg:
         r = '你才笨'
+    elif '帥'in msg:
+        r = '就你最醜'
+    elif '晚安'in msg:
+        r = '等等，我有一件很重要的事情跟你說'
+    elif '什麼事'in msg:
+        r = '沒事'
+    elif '？'in msg:
+        r = '不跟你說'
 
     line_bot_api.reply_message(
     event.reply_token,
