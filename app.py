@@ -40,22 +40,17 @@ def handle_message(event):
     msg = event.message.text
     r = msg
 
-
-    # with open('answer.txt','r',encoding='utf8')as f:
-    
-    #     for line in f: 
-    #         s = line.strip().split(',')
-        
-    #         keyword=s[0]
-    #         answer=s[1]
-        
-    #         if keyword in msg:
-    #         r=answer
-    
+    with open('answer.txt','r',encoding='utf8')as f:
+        for line in f: 
+            s = line.strip().split(',')
+            keyword = s[0]
+            answer = s[1]
+            if keyword in msg:
+            r = answer
 
     line_bot_api.reply_message(
     event.reply_token,
-    TextSendMessage(text=r))
+    TextSendMessage(text = r))
 
 
 if __name__ == "__main__":
