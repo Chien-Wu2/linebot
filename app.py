@@ -39,8 +39,6 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = msg
-    
-    msg=input('請輸入：')
 
 
 with open('回應資料庫.txt','r',encoding='utf8')as f:
