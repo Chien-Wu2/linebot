@@ -46,7 +46,7 @@ def handle_message(event):
             keyword = s[0]
             answer = s[1]
             if keyword in msg:
-            r = answer
+                r = answer
 
     line_bot_api.reply_message(
     event.reply_token,
