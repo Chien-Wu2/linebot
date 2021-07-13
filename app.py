@@ -41,7 +41,7 @@ def handle_message(event):
     r = msg
 
 
-    with open('回應資料庫.txt','r',encoding='utf8')as f:
+    with open('answer.txt','r',encoding='utf8')as f:
     
         for line in f: 
             s = line.strip().split(',')
