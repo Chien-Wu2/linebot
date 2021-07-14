@@ -45,6 +45,7 @@ def handle_message(event):
             s = line.strip().split(',')
             keyword = s[0]
             answer = s[1]
+            
             if keyword in msg:
                 r = answer
                 line_bot_api.reply_message(
@@ -56,7 +57,6 @@ def handle_message(event):
                 package_id='11537',
                 sticker_id='52002735'
                 )
-    
                 line_bot_api.reply_message(
                 event.reply_token,
                 sticker_message)
