@@ -40,17 +40,6 @@ def handle_message(event):
     msg = event.message.text
     r = msg
 
-    if '貼圖' in msg:
-        sticker_message = StickerSendMessage(
-        package_id='1',
-        sticker_id='1'
-    )
-    
-    line_bot_api.reply_message(
-    event.reply_token,
-    sticker_message)
-
-
     with open('answer.txt','r',encoding='utf8')as f:
         for line in f: 
             s = line.strip().split(',')
@@ -62,6 +51,16 @@ def handle_message(event):
     line_bot_api.reply_message(
     event.reply_token,
     TextSendMessage(text = r))
+
+    if '貼圖' in msg:
+        sticker_message = StickerSendMessage(
+        package_id='11537',
+        sticker_id='52002735'
+    )
+    
+    line_bot_api.reply_message(
+    event.reply_token,
+    sticker_message)
 
 
 if __name__ == "__main__":
