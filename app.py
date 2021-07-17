@@ -64,7 +64,7 @@ def handle_message(event):
 
             sticker_message = StickerSendMessage(
             package_id='f[x][0]',
-            sticker_id='f[x][1]'
+            sticker_id='[x][1]'
             )
             line_bot_api.reply_message(
             event.reply_token,
