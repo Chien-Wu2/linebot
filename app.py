@@ -1,3 +1,5 @@
+import random
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -52,14 +54,21 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text = r))
 
-            if '貼圖' in msg:
-                sticker_message = StickerSendMessage(
-                package_id='11537',
-                sticker_id='52002735'
-                )
-                line_bot_api.reply_message(
-                event.reply_token,
-                sticker_message)
+               
+    x = random.randint(0,9)
+    p =[]
+    with open('stk.txt','r',encoding='utf8') as f:
+        for line in f: 
+            pac,sti = line.strip().split(',')
+            p.append([pac,sti])
+
+            sticker_message = StickerSendMessage(
+            package_id='f[x][0]',
+            sticker_id='f[x][1]'
+            )
+            line_bot_api.reply_message(
+            event.reply_token,
+            sticker_message)
 
 
                 
