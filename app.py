@@ -54,24 +54,13 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text = r))
 
-    x = random.randint(0,9)
-    p =[]
-    with open('stk.txt','r',encoding='utf8') as f:
-        for line in f: 
-            pac,sti = line.strip().split(',')
-            p.append([pac,sti])
-
-            sticker_message = StickerSendMessage(
-            package_id='f[x][0]',
-            sticker_id='f[x][1]'
-            )
-            line_bot_api.reply_message(
-            event.reply_token,
-            sticker_message)
+            else:
+                sticker_message = StickerSendMessage(
+                package_id='11539',
+                sticker_id='52114117'
+                )
 
 
                 
-
-
 if __name__ == "__main__":
     app.run()
