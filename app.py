@@ -54,19 +54,19 @@ def handle_message(event):
                 sticker_id='52114117'
                 )
 
+                line_bot_api.reply_message(
+                event.reply_token,
+                sticker_message)
                 return
 
             if keyword in msg:
                 r = answer
-                line_bot_api.reply_message(
+                
+            line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text = r))
 
             
-            line_bot_api.reply_message(
-                event.reply_token,
-                sticker_message)
-
                 
 if __name__ == "__main__":
     app.run()
