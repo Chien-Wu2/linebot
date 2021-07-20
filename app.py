@@ -40,7 +40,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    r = msg
+    
 
     with open('answer.txt','r',encoding='utf8')as f:
         for line in f: 
@@ -48,7 +48,18 @@ def handle_message(event):
             keyword = s[0]
             answer = s[1]
             
-            if '貼圖'in msg:
+            
+
+            if keyword in msg:
+                r = answer
+                
+                line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text = r))
+
+                return
+
+            else:
                 sticker_message = StickerSendMessage(
                 package_id='11539',
                 sticker_id='52114117'
@@ -57,15 +68,7 @@ def handle_message(event):
                 line_bot_api.reply_message(
                 event.reply_token,
                 sticker_message)
-                return
-
-            if keyword in msg:
-                r = answer
                 
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text = r))
-
             
                 
 if __name__ == "__main__":
