@@ -48,18 +48,22 @@ def handle_message(event):
             keyword = s[0]
             answer = s[1]
             
+            if '貼圖'in msg:
+                sticker_message = StickerSendMessage(
+                package_id='11539',
+                sticker_id='52114117'
+                )
+
             if keyword in msg:
                 r = answer
                 line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text = r))
 
-            else:
-                sticker_message = StickerSendMessage(
-                package_id='11539',
-                sticker_id='52114117'
-                )
-
+            
+            line_bot_api.reply_message(
+                event.reply_token,
+                sticker_message)
 
                 
 if __name__ == "__main__":
