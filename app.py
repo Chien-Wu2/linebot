@@ -50,13 +50,13 @@ def handle_message(event):
 
             if keyword in msg:
                 r = answer
-                
+            
                 line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text = r))
-
-                return
-                
+            else:
+                r = no   
+    if r == no:
         sticker_message = StickerSendMessage(
         package_id='11539',
         sticker_id='52114117'
