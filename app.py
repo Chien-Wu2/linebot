@@ -54,6 +54,8 @@ def handle_message(event):
                 sticker_id='52114117'
                 )
 
+                return
+
             if keyword in msg:
                 r = answer
                 line_bot_api.reply_message(
