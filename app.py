@@ -41,14 +41,7 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     
-    sticker_message = StickerSendMessage(
-    package_id='11539',
-    sticker_id='52114117'
-    )
-
-    line_bot_api.reply_message(
-    event.reply_token,
-    sticker_message)
+    
                 
     p = []
     with open('answer.txt','r',encoding='utf8')as f:
@@ -64,7 +57,14 @@ def handle_message(event):
                 event.reply_token,
                 TextSendMessage(text = r))
                 
-            
+    sticker_message = StickerSendMessage(
+    package_id='11539',
+    sticker_id='52114117'
+    )
+
+    line_bot_api.reply_message(
+    event.reply_token,
+    sticker_message)
                 
 if __name__ == "__main__":
     app.run()
