@@ -54,6 +54,8 @@ def handle_message(event):
                 line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text = r))
+
+                return
                 
         sticker_message = StickerSendMessage(
         package_id='11539',
