@@ -41,13 +41,11 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     
-
+    p = []
     with open('answer.txt','r',encoding='utf8')as f:
         for line in f: 
-            s = line.strip().split(',')
-            keyword = s[0]
-            answer = s[1]
-            
+            s = keyword, answer = line.strip().split(',')
+            p.append([keyword, answer])
             
 
             if keyword in msg:
