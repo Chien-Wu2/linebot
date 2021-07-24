@@ -45,19 +45,18 @@ def handle_message(event):
         for line in f: 
             s = keyword, answer = line.strip().split(',')
             p.append([keyword, answer])
-            
-            if keyword in msg:
+                r = no
                 r = answer
+                
+            if keyword in msg:
                 line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text = r))
-                
+                TextSendMessage(text = r))  
             else:
-                break
-    sticker_message = StickerSendMessage(
-    package_id='11539',
-    sticker_id='52114117'
-    )
+                sticker_message = StickerSendMessage(
+                package_id='11539',
+                sticker_id='52114117'
+                )
 
 if __name__ == "__main__":
     app.run()
