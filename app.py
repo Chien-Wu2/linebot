@@ -36,7 +36,7 @@ def callback():
 
     return 'OK'
 
-
+    p=[]
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
@@ -44,6 +44,7 @@ def handle_message(event):
     with open('answer.txt','r',encoding='utf8')as f:
         for line in f: 
             s = keyword, answer = line.strip().split(',')
+            p.append([keyword, answer])
             
             if keyword in msg:
                 r = answer
