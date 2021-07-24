@@ -44,7 +44,6 @@ def handle_message(event):
     with open('answer.txt','r',encoding='utf8')as f:
         for line in f: 
             s = keyword, answer = line.strip().split(',')
-            p.append([keyword, answer])
             
 
             if keyword in msg:
