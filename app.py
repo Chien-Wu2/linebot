@@ -46,7 +46,8 @@ def handle_message(event):
         for line in f: 
             keyword,answer = line.strip().split(',')
             if keyword in msg:
-                r = answer   
+                r = answer
+                break   
 
     if r == 'no':
         p=[]
