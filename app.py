@@ -39,20 +39,27 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+
     msg = event.message.text
     r = 'no'
-    with open('answer.txt','r',encoding='utf8')as f:
-        for line in f: 
+    with open('answer.txt','r',encoding='utf8')as k:
+        for line in k: 
             keyword,answer = line.strip().split(',')
             if keyword in msg:
-                r = answer   
+                r = answer
+
+    x = random.randint(0,9)
+    p = []
+    with open('stk.txt','r',encoding='utf8') as f:
+        for line in f: 
+            pac,sti = line.strip().split(',')
 
     if r == 'no':
         line_bot_api.reply_message(
         event.reply_token,
         StickerSendMessage(
-            package_id='11539',
-            sticker_id='52114117'
+            package_id='f[x][0]',
+            sticker_id='f[x][1]'
         ))
 
     else:
