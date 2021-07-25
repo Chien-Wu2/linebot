@@ -1,15 +1,18 @@
-msg = input('請輸入：')
-r = 'no'
+import random
 
-with open('answer.txt','r',encoding='utf8')as f:
+x = random.randint(0,9)
+p=[]
+with open('stk.txt','r',encoding='utf8') as f:
     for line in f: 
-        keyword,answer = line.strip().split(',')
-        print(keyword,answer)
-        if keyword in msg:
-            r = answer
-            print(r)    
-
-if r == 'no':
-    print('sticker')
-else:
-    print(r)
+        pac,sti = line.strip().split(',')
+        p.append([pac,sti])
+print(x)
+print(p[x][0])
+print(p[x][1])
+#if r == 'no':
+#    line_bot_api.reply_message(
+#    event.reply_token,
+#    StickerSendMessage(
+#        package_id='f[x][0]',
+#        sticker_id='f[x][1]'
+#    ))
