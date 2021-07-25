@@ -49,8 +49,11 @@ def handle_message(event):
                 r = answer   
 
     if r == 'no':
-        p =[[11539,52114117],[11539,52114121],[11539,52114131]]
-        x = random.randint(0,2)
+        with open('stk.txt','r',encoding='utf8') as f:
+            for line in f: 
+                pac,sti = line.strip().split(',')
+                p.append([pac,sti])
+        x = random.randint(0,9)
         line_bot_api.reply_message(
         event.reply_token,
         StickerSendMessage(
