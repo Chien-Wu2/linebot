@@ -49,11 +49,13 @@ def handle_message(event):
                 r = answer   
 
     if r == 'no':
+        p =[[11539,52114117],[11539,52114121],[11539,52114131]]
+        x = random.randint(0,2)
         line_bot_api.reply_message(
         event.reply_token,
         StickerSendMessage(
-            package_id='11539',
-            sticker_id='52114117'
+            package_id=p[x][0],
+            sticker_id=p[x][1]
         ))
 
     else:
