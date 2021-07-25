@@ -49,6 +49,7 @@ def handle_message(event):
                 r = answer   
 
     if r == 'no':
+        p=[]
         with open('stk.txt','r',encoding='utf8') as f:
             for line in f: 
                 pac,sti = line.strip().split(',')
