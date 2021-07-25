@@ -48,10 +48,12 @@ def handle_message(event):
                 r = answer   
 
     if r == 'no':
-        sticker_message = StickerSendMessage(
-        package_id='11539',
-        sticker_id='52114117'
-        )
+        line_bot_api.reply_message(
+        event.reply_token,
+        StickerSendMessage(
+            package_id='11539',
+            sticker_id='52114117'
+        ))
 
     else:
         line_bot_api.reply_message(
