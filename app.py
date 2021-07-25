@@ -42,25 +42,18 @@ def handle_message(event):
 
     msg = event.message.text
     r = 'no'
-    with open('answer.txt','r',encoding='utf8')as k:
-        for line in k: 
+    with open('answer.txt','r',encoding='utf8')as f:
+        for line in f: 
             keyword,answer = line.strip().split(',')
             if keyword in msg:
-                r = answer
+                r = answer   
 
     if r == 'no':
-        x = random.randint(0,9)
-        p=[]
-        with open('stk.txt','r',encoding='utf8') as f:
-        for line in f: 
-            pac,sti = line.strip().split(',')
-            p.append([pac,sti])
-
         line_bot_api.reply_message(
         event.reply_token,
         StickerSendMessage(
-            package_id=11539,
-            sticker_id=52114117
+            package_id='11539',
+            sticker_id='52114117'
         ))
 
     else:
