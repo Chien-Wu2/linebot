@@ -13,6 +13,6 @@ print(p[x][1])
 #    line_bot_api.reply_message(
 #    event.reply_token,
 #    StickerSendMessage(
-#        package_id='f[x][0]',
-#        sticker_id='f[x][1]'
+#        package_id='p[x][0]',
+#        sticker_id='p[x][1]'
 #    ))
