@@ -36,27 +36,28 @@ def callback():
 
     return 'OK'
 
-    p=[]
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    
+    r = 'no'
     with open('answer.txt','r',encoding='utf8')as f:
         for line in f: 
-            s = keyword, answer = line.strip().split(',')
-            p.append([keyword, answer])
-                r = no
-                r = answer
-                
+            keyword,answer = line.strip().split(',')
             if keyword in msg:
-                line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text = r))  
-            if r == no:
-                sticker_message = StickerSendMessage(
-                package_id='11539',
-                sticker_id='52114117'
-                )
+                r = answer   
+
+    if r == 'no':
+        sticker_message = StickerSendMessage(
+        package_id='11539',
+        sticker_id='52114117'
+        )
+
+    else:
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text = r))
+        
 
 if __name__ == "__main__":
     app.run()

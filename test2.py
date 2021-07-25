@@ -1,9 +1,15 @@
-import random
-x = random.randint(0,9)
-print(x)
-p =[]
-with open('stk.txt','r',encoding='utf8') as f:
+msg = input('請輸入：')
+r = 'no'
+
+with open('answer.txt','r',encoding='utf8')as f:
     for line in f: 
-        pac,sti = line.strip().split(',')
-        p.append([pac,sti])
-    print(p[x][0]) 
+        keyword,answer = line.strip().split(',')
+        print(keyword,answer)
+        if keyword in msg:
+            r = answer
+            print(r)    
+
+if r == 'no':
+    print('sticker')
+else:
+    print(r)
