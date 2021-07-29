@@ -1,3 +1,9 @@
+import requests
+import pprint
+import re
+import certifi
+from pymongo import MongoClient
+
 import random
 
 from flask import Flask, request, abort
@@ -42,9 +48,9 @@ def handle_message(event):
 
     msg = event.message.text
     r = 'no'
-    with open('answer.txt','r',encoding='utf8')as f:
-        for line in f: 
-            keyword,answer = line.strip().split(',')
+    client = MongoClient('mongodb+srv://chien:chien572@cluster0.atm0a.mongodb.net/linebot?retryWrites=true&w=majority',tlsCAFile=certifi.where())
+    data = client.linebot.products.find()
+        for d in data: 
             if keyword in msg:
                 r = answer
                 break   
